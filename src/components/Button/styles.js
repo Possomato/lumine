@@ -1,15 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  width: 100%;
-  background-color: ${({theme}) => theme.COLORS.BLUE_400};
+  background-color: ${({ excluir, theme }) => excluir ? theme.COLORS.GRAY_300 : theme.COLORS.BLUE_400};
   color: ${({theme}) => theme.COLORS.WHITE};
 
-  height: 56px;
+  width: 80px;
+  height: 25px;
+
   border: 0;
   padding: 0 16px;
   margin-top: 16px;
-  border-radius: 10px;
+  border-radius: 5px;
+
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
 
   &disabled{
