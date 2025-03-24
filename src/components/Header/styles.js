@@ -45,18 +45,9 @@ export const Profile = styled.button`
   }
 `
 
-export const Search = styled.input`
+export const Search = styled.div`
   max-width: 600px;
   width: 40vw;
-
-  height: 35px;
-
-  padding: 0 8px;
-
-  border: none;
-  border-radius: 6px;
-
-  background-color: ${({theme}) => theme.COLORS.BLUE_100};
 `
 
 export const Button = styled.button`
