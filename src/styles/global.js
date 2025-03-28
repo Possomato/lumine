@@ -8,7 +8,7 @@ export default createGlobalStyle`
   }
 
   body{
-    background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
+    background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
     color: ${({theme}) => theme.COLORS.WHITE};
   }
 
@@ -34,4 +34,12 @@ export default createGlobalStyle`
     justify-content: center;
     gap: 48px;
   }
+
+  .tags{
+  display: flex;
+  gap: 5px;
+
+  width: 100%;
+  height: 100%;
+}
 `
