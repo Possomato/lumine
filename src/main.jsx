@@ -8,12 +8,13 @@ import theme from './styles/theme'
 
 import { Details } from './pages/Details'
 import { Feed } from './pages/Feed'
+import { SignIn } from './pages/SignIn'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Feed />
+      <SignIn />
     </ThemeProvider>
   </StrictMode>
 )
