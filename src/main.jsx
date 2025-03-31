@@ -9,12 +9,13 @@ import theme from './styles/theme'
 import { Details } from './pages/Details'
 import { Feed } from './pages/Feed'
 import { SignIn } from './pages/SignIn'
+import { SignUp } from './pages/SignUp'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <SignIn />
+      <SignUp />
     </ThemeProvider>
   </StrictMode>
 )
