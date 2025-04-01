@@ -18,6 +18,20 @@ export const Container = styled.div`
     background: transparent
   }
 
+  >.button-delete{
+    color: ${({theme}) => theme.COLORS.RED};
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  >.button-add{
+    color: ${({theme}) => theme.COLORS.BLUE_300};
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   >input{
     height: 35px;
     width: 100%;

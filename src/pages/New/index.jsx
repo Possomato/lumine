@@ -14,12 +14,12 @@ export function New() {
         <Form>
           <h1>Criar nota</h1>
 
-          <Input placeholder="Título" white={true}/>
-          <TextArea placeholder="Texto" white={true}/>
+          <Input placeholder="Título" white={true} />
+          <TextArea placeholder="Texto" white={true} />
 
-          <Section title='Referências'/>
-          <NoteItem isNew={true}/>
-          <NoteItem value='treste' isNew={false}/>
+          <Section title="Referências" />
+          <NoteItem value="treste" isNew={false} />
+          <NoteItem placeholder="Novo Link" isNew={true} />
         </Form>
       </main>
     </Container>
