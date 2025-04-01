@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.header`
   width: 100%;
@@ -11,13 +12,6 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   position: relative; /* Adicionado para permitir centralização absoluta */
-
-  h1 {
-    font-family: "Libre Baskerville", serif;
-    font-size: clamp(1.75em, 1em + 2vw, 2.5em);
-
-    color: ${({ theme }) => theme.COLORS.BLUE_300};
-  }
 
   .funcionalidades {
     display: flex;
@@ -50,7 +44,7 @@ export const Search = styled.div`
   width: 40vw;
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   height: 35px;
 
   padding: 0 8px;
@@ -62,4 +56,18 @@ export const Button = styled.button`
   width: 10vw;
   background-color: ${({theme}) => theme.COLORS.BLUE_400};
   color: ${({theme}) => theme.COLORS.WHITE};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+`
+
+export const Logo = styled(Link)`
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(1.75em, 1em + 2vw, 2.5em);
+
+  color: ${({ theme }) => theme.COLORS.BLUE_300};
 `
