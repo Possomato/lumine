@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
+  display: grid;
+  grid-template-rows: 70px auto;
+  grid-template-areas: "header" "content";
+  height: 100vh;
+  overflow: hidden;
 
-.main{
-  width: 90vw;
+  .main {
+  width: 100%;
   max-width: 1200px;
   height: 100vh;
-
   margin: auto;
+  overflow-y: auto;
 }
 
 
@@ -18,7 +23,7 @@ export const Container = styled.section`
   > h2{
     font-family: "Roboto", sans-serif;
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
 
     color: ${({theme}) => theme.COLORS.BLUE_300};
 
