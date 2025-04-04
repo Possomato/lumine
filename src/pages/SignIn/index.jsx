@@ -1,11 +1,15 @@
 import { Container, Form, ButtonEnter } from './styles'
 import { FiMail, FiLock } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth.jsx'
 
 import { Input } from '../../components/Input'
 import { ButtonText } from '../../components/ButtonText'
 
 export function SignIn() {
+  const data = useAuth()
+  console.log(data)
+
   return (
     <Container>
       <Form>
