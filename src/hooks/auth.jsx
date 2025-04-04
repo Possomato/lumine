@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
       localStorage.setItem('@lumine:user', JSON.stringify(user))
       localStorage.setItem('@lumine:token', token)
 
-      api.defaults.headers.authorization = `Bearer ${token}`
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
       setData({ user, token })
     } catch (error) {
       if (error.response) {
@@ -26,22 +26,35 @@ function AuthProvider({ children }) {
     }
   }
 
+  function signOut() {
+    localStorage.removeItem('@lumine:user')
+    localStorage.removeItem('@lumine:token')
+
+    setData({})
+  }
+
   useEffect(() => {
     const user = localStorage.getItem('@lumine:user')
     const token = localStorage.getItem('@lumine:token')
 
-    if(token && user){
-      api.defaults.headers.authorization = `Bearer ${token}`
+    if (token && user) {
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
     }
 
     setData({
       token,
-      user: JSON.parse(user)
+      user: JSON.parse(user),
     })
   }, [])
 
   return (
-    <AuthContext.Provider value={{ signIn, user: data.user }}>
+    <AuthContext.Provider
+      value={{
+        signIn,
+        signOut,
+        user: data.user,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )
