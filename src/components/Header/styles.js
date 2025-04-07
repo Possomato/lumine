@@ -24,7 +24,7 @@ export const Container = styled.header`
   }
 `;
 
-export const Profile = styled.button`
+export const Profile = styled(Link)`
   height: 40px;
   width: 40px;
 

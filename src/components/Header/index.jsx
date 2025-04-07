@@ -14,7 +14,7 @@ export function Header() {
         </Search>
         <Button to='/new'>Nova nota</Button>
       </div>
-      <Profile>
+      <Profile to='/profile'>
         <img src={profileSVG} />
       </Profile>
     </Container>
