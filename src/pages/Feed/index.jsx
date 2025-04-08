@@ -1,10 +1,22 @@
+import { useState, useEffect } from 'react'
 import { Container, Content } from './styles'
+import { api } from '../../services/api'
 
 import { Note } from '../../components/Note'
 import { Header } from '../../components/Header'
 import { Tag } from '../../components/Tag'
 
 export function Feed() {
+  const [ tags, setTags ] = useState([])
+
+  useEffect(() => {
+    async function fetchTags() {
+      const response = await api.get('/tags')
+      setTags(response.data)
+    }
+
+    fetchTags()
+  }, [])
   return (
     <Container>
       <Header />
@@ -12,11 +24,7 @@ export function Feed() {
         <div className="filters">
           <h2>Todas as notas</h2>
           <div className="tags">
-            <Tag title="teste" />
-            <Tag title="teste" />
-            <Tag title="teste" />
-            <Tag title="teste" />
-            <Tag title="teste" />
+            {tags && tags.map((tag) => <Tag key={String(tag.id)} title={tag.name} />)}
           </div>
         </div>
         <Content>
