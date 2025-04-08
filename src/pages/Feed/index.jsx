@@ -7,7 +7,19 @@ import { Header } from '../../components/Header'
 import { Tag } from '../../components/Tag'
 
 export function Feed() {
-  const [ tags, setTags ] = useState([])
+  const [tags, setTags] = useState([])
+  const [tagsSelected, setTagsSelected] = useState([])
+
+  function handleTagSelected(tagName) {
+    const alreadySelected = tagsSelected.includes(tagName)
+
+    if (alreadySelected) {
+      const filteredTags = tagsSelected.filter((tag) => tag !== tagName)
+      setTagsSelected(filteredTags)
+    } else {
+      setTagsSelected((prevState) => [...prevState, tagName])
+    }
+  }
 
   useEffect(() => {
     async function fetchTags() {
@@ -24,7 +36,15 @@ export function Feed() {
         <div className="filters">
           <h2>Todas as notas</h2>
           <div className="tags">
-            {tags && tags.map((tag) => <Tag key={String(tag.id)} title={tag.name} />)}
+            {tags &&
+              tags.map((tag) => (
+                <Tag
+                  key={String(tag.id)}
+                  title={tag.name}
+                  onClick={() => handleTagSelected(tag.name)}
+                  isActive={tagsSelected.includes(tag.name)}
+                />
+              ))}
           </div>
         </div>
         <Content>
