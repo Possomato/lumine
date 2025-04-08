@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Container, Form, Tags } from './styles.js'
 import { Header } from '../../components/Header'
 import { Input } from '../../components/Input'
@@ -7,6 +8,18 @@ import { Section } from '../../components/Section/index.jsx'
 import { Button } from '../../components/Button/index.jsx'
 
 export function New() {
+  const [links, setLinks] = useState([])
+  const [newLink, setNewLink] = useState('')
+
+  function handleAddLink() {
+    setLinks((prevState) => [...prevState, newLink])
+    setNewLink('')
+  }
+
+  function handleRemoveLink(deleted) {
+    setLinks((prevState) => prevState.filter((link) => link !== deleted))
+  }
+
   return (
     <Container>
       <Header />
@@ -19,8 +32,16 @@ export function New() {
           <TextArea placeholder="Texto" white={true} />
 
           <Section title="Referências" />
-          <NoteItem value="treste" isNew={false} />
-          <NoteItem placeholder="Novo Link" isNew={true} />
+          {links.map((link, index) => (
+            <NoteItem key={String(index)} value={link} onClick={() => handleRemoveLink(link)} />
+          ))}
+          <NoteItem
+            placeholder="Novo Link"
+            isNew={true}
+            value={newLink}
+            onChange={(e) => setNewLink(e.target.value)}
+            onClick={handleAddLink}
+          />
 
           <Section title="Tags" />
 
