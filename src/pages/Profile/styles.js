@@ -31,3 +31,35 @@ export const Container = styled.div`
   }
   }
 `
+export const Button = styled.button`
+  height: 35px;
+  width: 100%;
+
+  padding: 0 8px;
+  margin-bottom: 8px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: ${({theme}) => theme.COLORS.BLUE_400};
+  color: ${({theme}) => theme.COLORS.WHITE};
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+`
+
+export const ButtonSignOut = styled.button`
+  height: 35px;
+  width: 100%;
+
+  padding: 0 8px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+  color: ${({theme}) => theme.COLORS.RED};
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+`
