@@ -9,7 +9,6 @@ export const Container = styled.div`
   border-radius: 6px;
 
   background-color: ${({theme}) => theme.COLORS.BLUE_100};
-  background-color: ${({ $white, theme }) => $white ? theme.COLORS.WHITE : theme.COLORS.BLUE_200};
 
   > input{
     height: 35px;
@@ -21,7 +20,7 @@ export const Container = styled.div`
     border-radius: 6px;
 
     &::placeholder{
-      color: ${({ $white, theme }) => $white ? theme.COLORS.GRAY_300 : theme.COLORS.BLUE_300};
+      color: ${({ theme }) => theme.COLORS.BLUE_300};
     }
   }
 

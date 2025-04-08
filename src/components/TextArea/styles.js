@@ -4,7 +4,7 @@ export const Container = styled.textarea`
 width: 100%;
 height: 250px;
 
-background-color: ${({theme}) => theme.COLORS.WHITE};
+background-color: ${({theme}) => theme.COLORS.BLUE_100};
 
 border: none;
 resize: none;
@@ -17,6 +17,6 @@ font-family: 'Roboto', sans-serif;
 margin-top: 8px;
 
 &::placeholder{
-      color: ${({theme}) => theme.COLORS.GRAY_300}
+      color: ${({theme}) => theme.COLORS.BLUE_300}
     }
 `

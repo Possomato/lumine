@@ -51,6 +51,11 @@ export function New() {
   }
 
   async function handleNewNote() {
+    if(newTag || newLink){
+      alert('Há campos a serem adicionados!')
+      return
+    }
+
     await api.post('/notes', {
       title,
       description,
@@ -73,13 +78,11 @@ export function New() {
 
           <Input
             placeholder="Título"
-            white={true}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <TextArea
             placeholder="Texto"
-            white={true}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />

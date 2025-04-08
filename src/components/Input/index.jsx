@@ -1,8 +1,8 @@
 import { Container } from "./styles";
 
-export function Input({icon: Icon, white, ...rest}){
+export function Input({icon: Icon, ...rest}){
   return(
-    <Container $white={white}>
+    <Container >
       {Icon && <Icon/>}
       <input  {...rest}/>
     </Container>
