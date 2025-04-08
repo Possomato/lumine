@@ -12,6 +12,11 @@ export function New() {
   const [newLink, setNewLink] = useState('')
 
   function handleAddLink() {
+    if (!newLink.trim()) {
+      alert('O link não pode estar vazio!')
+      return
+    }
+
     setLinks((prevState) => [...prevState, newLink])
     setNewLink('')
   }
