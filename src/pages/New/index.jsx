@@ -11,6 +11,9 @@ export function New() {
   const [links, setLinks] = useState([])
   const [newLink, setNewLink] = useState('')
 
+  const [tags, setTags] = useState([])
+  const [newTag, setNewTag] = useState('')
+
   function handleAddLink() {
     if (!newLink.trim()) {
       alert('O link não pode estar vazio!')
@@ -23,6 +26,20 @@ export function New() {
 
   function handleRemoveLink(deleted) {
     setLinks((prevState) => prevState.filter((link) => link !== deleted))
+  }
+
+  function handleAddTag() {
+    if (!newTag.trim()) {
+      alert('A tag não pode estar vazia!')
+      return
+    }
+
+    setTags((prevState) => [...prevState, newTag])
+    setNewTag('')
+  }
+
+  function handleRemoveTag(deleted) {
+    setTags((prevState) => prevState.filter((tag) => tag !== deleted))
   }
 
   return (
@@ -38,7 +55,11 @@ export function New() {
 
           <Section title="Referências" />
           {links.map((link, index) => (
-            <NoteItem key={String(index)} value={link} onClick={() => handleRemoveLink(link)} />
+            <NoteItem
+              key={String(index)}
+              value={link}
+              onClick={() => handleRemoveLink(link)}
+            />
           ))}
           <NoteItem
             placeholder="Novo Link"
@@ -51,10 +72,19 @@ export function New() {
           <Section title="Tags" />
 
           <Tags>
-            <NoteItem value="react" isNew={false} />
-            <NoteItem placeholder="Novo Tag" isNew={true} />
-            <NoteItem value="react" isNew={false} />
-            <NoteItem placeholder="Novo Tag" isNew={true} />
+            {tags.map((tag, index) => (
+              <NoteItem
+                value={tag}
+                onClick={() => handleRemoveTag(tag)}
+              />
+            ))}
+            <NoteItem
+              placeholder="Nova Tag"
+              isNew={true}
+              value={newTag}
+              onChange={(e) => setNewTag(e.target.value)}
+              onClick={handleAddTag}
+            />
           </Tags>
 
           <div className="buttons">
