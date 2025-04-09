@@ -55,7 +55,6 @@ export function Feed() {
       <Header searchState={(e) => setSearch(e.target.value)} />
       <div className="main">
         <div className="filters">
-          <h2>Todas as notas</h2>
           <div className="tags">
             {tags &&
               tags.map((tag) => (

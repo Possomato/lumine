@@ -71,7 +71,7 @@ export function Details() {
             )}
             <div className="buttons">
               <Button title="Excluir" excluir={true} onClick={handleRemove} />
-              <Button title="Editar" excluir={false} />
+              {/* <Button title="Editar" excluir={false} /> */}
             </div>
           </Content>
         </main>

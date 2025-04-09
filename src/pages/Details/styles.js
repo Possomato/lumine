@@ -47,5 +47,7 @@ export const Content = styled.div`
     font-size: 16px;
     font-family: "Roboto", sans-serif;
     text-align: justify;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
   }
 `

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  width: 300px;
+  max-width: 100%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
   border: none;
   border-radius: 5px;
@@ -47,7 +47,9 @@ export const Container = styled.button`
 
   footer {
     display: flex;
-    gap: 8px;
+    gap: 6px 0;
+    width: 100%;
+    flex-wrap: wrap;
 
     > span {
       background-color: ${({ theme }) => theme.COLORS.BLUE_300};

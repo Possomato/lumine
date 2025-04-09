@@ -33,6 +33,7 @@ export const Container = styled.section`
     overflow: hidden; 
     text-overflow: ellipsis; 
     max-width: 100%; 
+    text-decoration: underline;
 
     &:hover{
     color: ${({theme}) => theme.COLORS.BLUE_300};

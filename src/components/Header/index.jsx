@@ -10,7 +10,7 @@ export function Header({searchState}) {
       <Logo to='/'>Lumine</Logo>
       <div className="funcionalidades">
       <Search onChange={searchState}>
-          <Input icon={FiSearch} />
+          <Input icon={FiSearch} white={true}/>
         </Search>
         <Button to='/new'>Nova nota</Button>
       </div>
