@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Container, Content } from './styles'
 import { api } from '../../services/api'
 
@@ -9,6 +10,10 @@ import { Tag } from '../../components/Tag'
 export function Feed() {
   const [tags, setTags] = useState([])
   const [tagsSelected, setTagsSelected] = useState([])
+  const [search, setSearch] = useState([])
+  const [notes, setNotes] = useState([])
+
+  const navigate = useNavigate()
 
   function handleTagSelected(tagName) {
     const alreadySelected = tagsSelected.includes(tagName)
@@ -21,6 +26,10 @@ export function Feed() {
     }
   }
 
+  function handleDetails(id){
+    navigate(`/details/${id}`)
+  }
+
   useEffect(() => {
     async function fetchTags() {
       const response = await api.get('/tags')
@@ -29,9 +38,21 @@ export function Feed() {
 
     fetchTags()
   }, [])
+
+  useEffect(() => {
+    async function fetchNotes() {
+      const response = await api.get(
+        `/notes?title=${search}&tags=${tagsSelected}`
+      )
+      console.log(response.data);
+      setNotes(response.data)
+    }
+
+    fetchNotes()
+  }, [tagsSelected, search])
   return (
     <Container>
-      <Header />
+      <Header searchState={(e) => setSearch(e.target.value)} />
       <div className="main">
         <div className="filters">
           <h2>Todas as notas</h2>
@@ -48,17 +69,13 @@ export function Feed() {
           </div>
         </div>
         <Content>
-          <Note
-            data={{
-              title: 'A Crítica da Razão Pura',
-              date: '24/05/2025',
-              text: 'Kant, questiona os limites do conhecimento humano e a relação entre experiência e razão…',
-              tags: [
-                { id: '1', title: 'Kant' },
-                { id: '2', title: 'Filosofia' },
-              ],
-            }}
-          />
+          {notes.map((note) => (
+            <Note
+            key={String(note.id)}
+            data={note}
+            onClick={() => handleDetails(note.id)}
+            />
+          ))}
         </Content>
       </div>
     </Container>
